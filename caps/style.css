@@ -3,6 +3,16 @@
   src: url(fonts/cursive.ttf);
 }
 
+@font-face {
+  font-family: imposter;
+  src: url(fonts/imposter.ttf);
+}
+
+@font-face {
+  font-family: farmer;
+  src: url(fonts/farmer.ttf);
+}
+
 .sectionheader {
   font-size: 23px;
   padding: 1px 1px 1px 1px;
