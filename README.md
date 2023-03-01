@@ -8,7 +8,7 @@ The main use-case scenario is if you're a privacy-conscious individual who wish 
 
 This project aims to end Local Network internet censorship at a high level. This repository is designed to be easily reproducable and at a low or non-existent price as it is a 'static website' but also uses no javascript.
 
-I DO NOT CONDONE THIS but another example of where this program is applicable is in a school, workplace or hotel where local network blocking is used either by using 'Trick Domain Name Server(s) or TDNS for short' or any other means. Again, I RECOMMEND AGAINST USING MY PROJECT FOR THIS, YOUR FAULT IF YOU GET FIRED.
+I DO NOT CONDONE THIS but another example of where this program is applicable is in a school, workplace or hotel where local network blocking is used either by using 'Trick Domain Name Server(s) or TDNS for short' or any other means.
 
 Also... No Javascript! https://www.infoworld.com/article/2641586/javascript-considered-harmful-.html
 
