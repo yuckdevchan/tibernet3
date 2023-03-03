@@ -13,6 +13,11 @@
   src: url(fonts/farmer.ttf);
 }
 
+@font-face {
+  font-family: ourreevesfamily;
+  src: url(fonts/ourreevesfamily.ttf);
+}
+
 .sectionheader {
   font-size: 23px;
   padding: 1px 1px 1px 1px;
