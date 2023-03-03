@@ -23,6 +23,11 @@
   src: url(fonts/foobold.ttf);
 }
 
+@font-face {
+  font-family: japesterregular;
+  src: url(fonts/japesterregular.ttf);
+}
+
 .sectionheader {
   font-size: 23px;
   padding: 1px 1px 1px 1px;
