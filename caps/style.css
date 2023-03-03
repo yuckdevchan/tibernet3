@@ -28,6 +28,11 @@
   src: url(fonts/japesterregular.ttf);
 }
 
+@font-face {
+  font-family: slay;
+  src: url(fonts/slay.ttf);
+}
+
 .sectionheader {
   font-size: 23px;
   padding: 1px 1px 1px 1px;
