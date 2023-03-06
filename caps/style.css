@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: CartelStag;
+  src: url(fonts/CartelStaggered.otf);
+}
+
+@font-face {
   font-family: imposter;
   src: url(fonts/imposter.ttf);
 }
