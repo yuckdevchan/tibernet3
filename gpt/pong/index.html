@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pong Game</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <p>Score: <span id="score">0</span></p>
+
+    <script>
+      var canvas = document.getElementById("gameCanvas");
+      var ctx = canvas.getContext("2d");
+      var scoreDisplay = document.getElementById("score");
+      var score = 0;
+
+      // Ball properties
+      var ballRadius = 10;
+      var ballX = canvas.width / 2;
+      var ballY = canvas.height / 2;
+      var ballSpeedX = 5;
+      var ballSpeedY = 5;
+
+      // Paddle properties
+      var paddleHeight = 75;
+      var paddleWidth = 10;
+      var leftPaddleY = canvas.height / 2 - paddleHeight / 2;
+      var rightPaddleY = canvas.height / 2 - paddleHeight / 2;
+      var paddleSpeed = 10;
+
+      // Event listener for touch controls
+      canvas.addEventListener("touchmove", function(event) {
+        var touchY = event.touches[0].clientY - canvas.offsetTop - paddleHeight / 2;
+        if (touchY < 0) {
+          touchY = 0;
+        }
+        if (touchY > canvas.height - paddleHeight) {
+          touchY = canvas.height - paddleHeight;
+        }
+        leftPaddleY = touchY;
+      });
+
+      function drawBall() {
+        ctx.beginPath();
+        ctx.arc(ballX, ballY, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function drawPaddles() {
+        // Draw left paddle
+        ctx.beginPath();
+        ctx.rect(0, leftPaddleY, paddleWidth, paddleHeight);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        // Draw right paddle
+        ctx.beginPath();
+        ctx.rect(canvas.width - paddleWidth, rightPaddleY, paddleWidth, paddleHeight);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function update() {
+        // Move ball
+        ballX += ballSpeedX;
+        ballY += ballSpeedY;
+
+        // Bounce ball off top and bottom walls
+        if (ballY + ballSpeedY < ballRadius || ballY + ballSpeedY > canvas.height - ballRadius) {
+          ballSpeedY = -ballSpeedY;
+        }
+
+        // Check for left paddle collision
+        if (ballX - ballRadius <= paddleWidth && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+          ballSpeedX = -ballSpeedX;
+          score += 1;
+          scoreDisplay.innerHTML = score;
+        }
+
+        // Check for right paddle collision
+        if (ballX + ballRadius >= canvas.width - paddleWidth && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
+          ballSpeedX = -ballSpeedX;
+          score += 1;
+          scoreDisplay.innerHTML = score;
+        }
+
+        // Move right paddle
+        var rightPaddleCenterY = rightPaddleY + paddleHeight / 2;
+        if (rightPaddleCenterY <
