@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tier List</title>
+  </head>
+  <body>
+    <h1>Tier List</h1>
+    <p>Select a tier:</p>
+    <select id="tier-select">
+      <option value="s">S Tier</option>
+      <option value="a">A Tier</option>
+      <option value="b">B Tier</option>
+      <option value="c">C Tier</option>
+      <option value="d">D Tier</option>
+    </select>
+    <h2 id="current-tier">S Tier</h2>
+    <ul id="tier-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <script>
+      const tierSelect = document.getElementById('tier-select');
+      const currentTier = document.getElementById('current-tier');
+      const tierList = document.getElementById('tier-list');
+      
+      // Add event listener to tier select
+      tierSelect.addEventListener('change', () => {
+        // Update current tier heading
+        currentTier.textContent = tierSelect.options[tierSelect.selectedIndex].text;
+        
+        // Clear existing tier list
+        tierList.innerHTML = '';
+        
+        // Generate new tier list
+        for (let i = 1; i <= 3; i++) {
+          const item = document.createElement('li');
+          item.textContent = `Item ${i}`;
+          tierList.appendChild(item);
+        }
+      });
+    </script>
+  </body>
+</html>
