@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Response Website</title>
+</head>
+<body>
+	<h1>Enter your input:</h1>
+	<input type="text" id="inputBox" oninput="displayResponse()">
+	<p id="response"></p>
+
+	<script>
+		function displayResponse() {
+			var input = document.getElementById("inputBox").value.toLowerCase();
+			var response = "";
+
+			switch(input) {
+				case "hello":
+					response = "Hi there!";
+					break;
+				case "how are you?":
+					response = "I'm doing well, thank you.";
+					break;
+				case "what's your name?":
+					response = "My name is ChatGPT.";
+					break;
+				default:
+					response = "I'm sorry, I don't understand.";
+			}
+
+			document.getElementById("response").innerHTML = response;
+		}
+	</script>
+</body>
+</html>
