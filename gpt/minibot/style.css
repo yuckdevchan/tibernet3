@@ -1,0 +1,22 @@
+body {
+	background-color: black;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+input[type="text"] {
+	padding: 10px;
+	font-size: 18px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: none;
+}
+
+h1, p {
+	text-align: center;
+	margin: 0;
+}
