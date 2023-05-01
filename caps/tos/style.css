@@ -1,0 +1,8 @@
+body {
+  background-color: black;
+  font-family: Verdana, sans-serif;
+}
+
+p, h1, h2, h3, h4, a {
+  color: white;
+}

@@ -1,0 +1,37 @@
+.toslink {
+  font-size: 16px;
+  border-color: white;
+  border-radius: 0px;
+  padding: 1px 1px 1px 1px;
+  border-top: 0px solid #ff2200;
+  border-right: 0px solid #ff2200;
+  border-bottom: 0px solid #ff2200;
+  border-left: 0px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 200px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.tosnotice {
+  font-size: 12px;
+  border-color: white;
+  border-radius: 15px;
+  padding: 1px 1px 1px 1px;
+  border-top: 3px solid #ff2200;
+  border-right: 3px solid #ff2200;
+  border-bottom: 3px solid #ff2200;
+  border-left: 3px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 100px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}

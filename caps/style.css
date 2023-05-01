@@ -1,0 +1,195 @@
+@font-face {
+  font-family: CartelCursive;
+  src: url(fonts/mafia.ttf);
+}
+
+@font-face {
+  font-family: CartelStag;
+  src: url(fonts/CartelStaggered.otf);
+}
+
+@font-face {
+  font-family: imposter;
+  src: url(fonts/imposter.ttf);
+}
+
+@font-face {
+  font-family: farmer;
+  src: url(fonts/farmer.ttf);
+}
+
+@font-face {
+  font-family: ourreevesfamily;
+  src: url(fonts/ourreevesfamily.ttf);
+}
+
+@font-face {
+  font-family: foobold;
+  src: url(fonts/foobold.ttf);
+}
+
+@font-face {
+  font-family: japesterregular;
+  src: url(fonts/japesterregular.ttf);
+}
+
+@font-face {
+  font-family: slay;
+  src: url(fonts/slay.ttf);
+}
+
+@font-face {
+  font-family: DCImpact;
+  src: url(fonts/DCImpact.ttf);
+}
+
+.sectionheader {
+  font-size: 23px;
+  padding: 1px 1px 1px 1px;
+  border-top: 5px solid #ff2200;
+  border-right: 5px solid #ff2200;
+  border-bottom: 5px solid #ff2200;
+  border-left: 5px solid #ff2200;
+}
+
+.capcartel {
+  font-family: CartelCursive;
+}
+
+table, th, td {
+  border: 3px solid #ff2200;
+  border-color: #ff2200;
+  border-collapse: collapse;
+  color: darkslategray;
+}
+
+.splash {
+  font-size: 69px;
+  border-color: white;
+  border-radius: 25px;
+  padding: 2px 2px 2px 2px;
+  border-top: 10px solid #ff2200;
+  border-right: 10px solid #ff2200;
+  border-bottom: 10px solid #ff2200;
+  border-left: 10px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 755px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.halfsize {
+  width: 50%;
+}
+
+p {
+  font-size: 45px;
+  border-color: white;
+  border-radius: 25px;
+  padding: 2px 2px 2px 2px;
+  border-top: 10px solid #ff2200;
+  border-right: 10px solid #ff2200;
+  border-bottom: 10px solid #ff2200;
+  border-left: 10px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 250px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+ul, ol, a {
+  font-size: 16px;
+  border-color: white;
+  border-radius: 15px;
+  padding: 1px 1px 1px 1px;
+  border-top: 3px solid #ff2200;
+  border-right: 3px solid #ff2200;
+  border-bottom: 3px solid #ff2200;
+  border-left: 3px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 200px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+h1 {
+  font-size: 57px;
+  border-color: white;
+  border-radius: 25px;
+  padding: 2px 2px 2px 2px;
+  border-top: 10px solid #ff2200;
+  border-right: 10px solid #ff2200;
+  border-bottom: 10px solid #ff2200;
+  border-left: 10px solid #ff2200;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  width: 955px;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/*.splash:hover {
+  font-size: 69px;
+  border-color: white;
+  border-radius: 25px;
+  padding: 2px 2px 2px 2px;
+  border-top: 10px solid mediumseagreen;
+  border-right: 10px solid gold;
+  border-bottom: 10px solid dodgerblue;
+  border-left: 10px solid orangered;
+  color: darkslategray;
+  background-color: ghostwhite;
+  transition: all 0.3s linear;
+  height: 350px;*/
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+p {
+  font-size: 35;
+  color: darkslategray;
+}
+
+h1 {
+  color: darkslategray;
+}
+
+body {
+  background-image: url('https://media.istockphoto.com/id/947328340/vector/seamless-bottle-caps-pattern-on-pale-background.jpg?s=612x612&w=0&k=20&c=05yZSxDxQui2tJ7dfg_PjyAXx_GK6T7cg8d5Rg4vadA=');
+}
+
+a {
+  color: darkslategray;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px grey, 0 0 40px grey, 0 0 50px grey;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px white, 0 0 40px white, 0 0 50px;
+  }
+}
