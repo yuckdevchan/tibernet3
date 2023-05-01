@@ -1,0 +1,56 @@
+
+table, th, td {
+  border: 3px solid black;
+  border-color: darkslategray;
+  border-collapse: collapse;
+  color: darkslategray;
+}
+
+.splash {
+  font-size: 69px;
+  border-color: darkslategray;
+  border-radius: 25px;
+  padding: 2px 2px 2px 2px;
+  border-top: 10px solid darkslategray;
+  border-right: 10px solid darkslategray;
+  border-bottom: 10px solid darkslategray;
+  border-left: 10px solid darkslategray;
+  color: darkslategray;
+  background-color: ghostwhite;
+  
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+p {
+  font-size: 35;
+  color: darkslategray;
+}
+
+h1 {
+  color: darkslategray;
+}
+
+body {
+  background-color: ghostwhite;
+}
+
+a {
+  color: darkslategray;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px grey, 0 0 40px grey, 0 0 50px grey;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px white, 0 0 40px white, 0 0 50px;
+  }
+}
