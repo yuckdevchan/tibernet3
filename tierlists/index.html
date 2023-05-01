@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' lang='en'/>
+    <title>Offline TierMaker</title>
+      <link rel="icon" type="image/png" href="https://searx.be/image_proxy?url=https%3A%2F%2Fem-content.zobj.net%2Fsource%2Fskype%2F289%2Fclown-face_1f921.png&h=77e1942cd0341a221c4f0868b65bb4bf504cdcaacea9c7307358e8e306a1c7d5">
+    <link rel='stylesheet' href='tiers.css'/>
+    <script src='tiers.js' async></script>
+  </head>
+  <body>
+      <b><a href="/" style="color: darkslategray;font-size: 16px;border-color: white;border-radius: 15px;padding: 1px 1px 1px 1px;border-top: 3px solid #ff2200;border-right: 3px solid #ff2200;border-bottom: 3px solid #ff2200;border-left: 3px solid #ff2200;color: darkslategray;background-color: ghostwhite;transition: all 0.3s linear;width: 200px;-webkit-animation: glow 1s ease-in-out infinite alternate;-moz-animation: glow 1s ease-in-out infinite alternate;animation: glow 1s ease-in-out infinite alternate;font-family: Arial, sans-serif;">←Back</a></b>
+    <div class='title'>
+        <label class='title-label' for='title-input'>My TierList</label>
+        <input type='text' id='title-input' />
+    </div>
+    <section class='main-content'>
+        <div class='tierlist'>
+        </div>
+        <div class='bottom-container'>
+            <div class='buttons-container'>
+                <div class='button'>
+                    <label for='load-img-input'>
+                        <img src='plus.png' title='Add images'/>
+                    </label>
+                    <input id='load-img-input' type='file' accept='image/*' multiple/>
+                </div>
+                <div class='button'>
+                    <label for='reset-list-input'>
+                        <img src='reset.png' title='Reset list'>
+                    </label>
+                    <input id='reset-list-input' type='button' />
+                </div>
+                <div class='button'>
+                    <label for='export-input'>
+                        <img src='export.png' title='Export'>
+                    </label>
+                    <input id='export-input' type='button' />
+                </div>
+                <div class='button'>
+                    <label for='import-input'>
+                        <img src='import.png' title='Import'/>
+                    </label>
+                    <input id='import-input' type='file' accept='.json' multiple/>
+                </div>
+            </div>
+            <section class='images'></section>
+        </div>
+    </section>
+        <a href='https://github.com/silverweed/tiers' class='gh-link'>GitHub</a>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+html {
+  --scrollbarBG: #37474f;
+  --thumbBG    : #3769c8;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body {
+  background-color: black !important;
+  font-family     : "Roboto", sans-serif !important;
+  scrollbar-width : thin;
+  scrollbar-color : var(--bg-dark) var(--primary);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius   : 6px;
+  border          : 3px solid var(--bg-dark);
+}
+
+:root {
+  --primary  : #c3073f;
+  --secondary: #da5973;
+  --bg-dark  : #131313;
+}
+
+.navbar {
+  padding         : 0 16px;
+  background-color: var(--primary);
+}
+
+.navbar-center {
+  width: 50%;
+}
+
+.navbar a {
+  color: black !important;
+}
+
+#settingsBtn button {
+  padding-right: 0 !important;
+}
+
+@media (max-width:640px) {
+  #emptySec {
+    width    : 0px !important;
+    flex-grow: 0;
+  }
+
+  .navbar a {
+    margin: .5rem auto 0 0 !important;
+  }
+
+  .navbar-center {
+    width: 100%;
+    order: 3;
+  }
+
+  #settingsBtn {
+    order     : 2;
+    margin-top: 15px;
+  }
+}
+
+a {
+  color: var(--primary) !important;
+}
+
+.tab-item.active a {
+  border-bottom-color: var(--primary) !important;
+}
+
+.loading::after {
+  border-color    : var(--primary) !important;
+  border-top-color: transparent !important;
+}
+
+.tab {
+  border: none !important;
+}
+
+.container2 {
+  padding: 1em 0.8em 0;
+}
+
+@media screen and (min-width: 961px) {
+  .container2 {
+    width : 90%;
+    margin: 0 auto;
+  }
+}
+
+.card-title,
+.card-subtitle {
+  overflow     : hidden;
+  white-space  : nowrap;
+  /* Don't forget this one */
+  text-overflow: ellipsis;
+}
+
+.card {
+  background-color: var(--bg-dark) !important;
+  border          : none !important;
+  margin-bottom   : 1em;
+}
+
+.card .h6 {
+  color: var(--primary);
+}
+
+.card-body {
+  color: darkgray;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.plyr__control--overlaid,
+.plyr__control:hover,
+.plyr__control[role="menuitemradio"][aria-checked="true"]::before,
+.plyr--video .plyr__control[aria-expanded="true"] {
+  background-color: var(--primary) !important;
+}
+
+.plyr--full-ui input[type="range"] {
+  color: var(--primary) !important;
+}
+
+.empty {
+  background-color: transparent !important;
+}
+
+.empty-title {
+  color: white !important;
+}
+
+.btn {
+  background-color: var(--primary) !important;
+  border          : none !important;
+  color           : black !important;
+}
+
+.btn:hover {
+  background-color: var(--secondary) !important;
+}
+
+.btn:active {
+  background-color: var(--primary) !important;
+}
+
+.about-description {
+  color: white;
+}
+
+.about-description pre {
+  font-family: "Roboto", sans-serif;
+  white-space: pre-wrap !important;
+  /* css-3 */
+  white-space: -moz-pre-wrap !important;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap !important;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap !important;
+  /* Opera 7 */
+  word-wrap  : break-word !important;
+  /* Internet Explorer 5.5+ */
+}
+
+.about-description pre a {
+  color          : var(--primary);
+  text-decoration: none;
+}
+
+.about-description pre a:hover {
+  color: var(--secondary);
+}
+
+#channelDescription {
+  padding: 0 1em;
+}
+
+/*
+.tab {
+  margin: 0 auto;
+}
+*/
+@media screen and (min-width: 768px) {
+  .tab {
+    width: 50% !important;
+  }
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+  overflow     : hidden;
+  width        : 100%;
+}
+
+.panel-body {
+  padding: 0 !important;
+}
