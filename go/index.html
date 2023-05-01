@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Go game for the browser</title>
+      <link rel="icon" type="image/png" href="https://searx.be/image_proxy?url=https%3A%2F%2Fem-content.zobj.net%2Fsource%2Fskype%2F289%2Fclown-face_1f921.png&h=77e1942cd0341a221c4f0868b65bb4bf504cdcaacea9c7307358e8e306a1c7d5">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <b><a href="/" style="color: darkslategray;font-size: 16px;border-color: white;border-radius: 15px;padding: 1px 1px 1px 1px;border-top: 3px solid #ff2200;border-right: 3px solid #ff2200;border-bottom: 3px solid #ff2200;border-left: 3px solid #ff2200;color: darkslategray;background-color: ghostwhite;transition: all 0.3s linear;width: 200px;-webkit-animation: glow 1s ease-in-out infinite alternate;-moz-animation: glow 1s ease-in-out infinite alternate;animation: glow 1s ease-in-out infinite alternate;font-family: Arial, sans-serif;">←Back</a></b>
+    <div id="app" v-cloak>
+      <div class="container">
+
+        <div class="row top-buffer">
+          <div class="col">
+            <div v-if="num_consecutive_passes == num_colors" class="alert alert-dismissible alert-danger">
+              {{ num_players }} consecutive passes: game has ended.
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+
+          <div class="col">
+            <table style="border: 10px solid #533939; background: #e8b060">
+              <tbody>
+                <tr v-for="row in (0, num_rows)">
+                  <td v-for="col in (0, num_cols)">
+                    <div @mouseover="mouse_over(col, row)"
+                         @mouseout="mouse_out(col, row)"
+                         @click="click(col, row)">
+                      <svg width="30" height="30">
+                        <g>
+                          <rect x="0" y="0" width="30" height="30" fill="#e8b060" />
+                        </g>
+                        <board-grid :col="col" :row="row" :num_cols="num_cols" :num_rows="num_rows"></board-grid>
+                        <stone v-if="board[[col, row]] == 0"
+                               :cx="15.0"
+                               :cy="15.0"
+                               :opacity="shadow_opacity[[col, row]]"
+                               :fill="color(color_current_move)"></stone>
+                        <stone-shadow v-if="board[[col, row]] > 0"
+                                      :cx="18.0" :cy="18.0"></stone-shadow>
+                        <stone v-if="board[[col, row]] > 0"
+                               :cx="15.0"
+                               :cy="15.0"
+                               :opacity="1.0"
+                               :fill="color(board[[col, row]])"></stone>
+                      </svg>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> <!-- board -->
+
+          <div class="col">
+
+            <p>
+              go game for the browser
+              (<a href="https://github.com/bast/go-game" target="_blank">authors and source code</a>)
+            </p>
+
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="radio_9" value="9" v-model="board_size" checked="">
+                <label class="form-check-label" for="radio_9">9x9</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="radio_13" value="13" v-model="board_size">
+                <label class="form-check-label" for="radio_13">13x13</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="radio_19" value="19" v-model="board_size">
+                <label class="form-check-label" for="radio_19">19x19</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <select v-model="num_players" id="num_players">
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+              <label for="num_players">players</label>
+            </div>
+            <div class="form-group">
+              <button v-on:click="pass" type="button" class="btn btn-xs btn-primary btn-file">pass</button>
+              <button v-on:click="reset" type="button" class="btn btn-xs btn-success btn-file">start a new game</button>
+            </div>
+
+            <div class="form-group">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="score_checkbox" checked="" v-model="show_score">
+                <label class="custom-control-label" for="score_checkbox">
+                  show live score
+                  (<a href="https://en.wikipedia.org/wiki/Rules_of_Go#Area_scoring" target="_blank">area scoring</a>)
+                </label>
+              </div>
+            </div>
+            <table>
+              <tbody>
+                <tr v-for="i in num_colors">
+                  <td>
+                    <div v-if="i == color_current_move">
+                      <i class="fa fa-arrow-right fa-fw"></i>
+                    </div>
+                  </td>
+                  <td style="background: #e8b060">
+                    <svg width="30" height="30">
+                      <stone :cx="15.0"
+                             :cy="15.0"
+                             :opacity="1.0"
+                             :fill="color(i)"></stone>
+                    </svg>
+                  </td>
+                  <td v-if="show_score">
+                    &nbsp; {{ score[i] }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div> <!-- right panel -->
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

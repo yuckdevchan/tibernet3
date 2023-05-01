@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tier List</title>
+    <style>
+      .tier {
+        padding: 10px;
+        border: 2px solid black;
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .item {
+        padding: 5px;
+        border: 1px solid gray;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+      .item img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tier List</h1>
+    <p>Select a tier:</p>
+    <div id="tier-select">
+      <div class="tier" data-tier="s">S Tier</div>
+      <div class="tier" data-tier="a">A Tier</div>
+      <div class="tier" data-tier="b">B Tier</div>
+      <div class="tier" data-tier="c">C Tier</div>
+      <div class="tier" data-tier="d">D Tier</div>
+    </div>
+    <div id="current-tier-container">
+      <h2 id="current-tier">S Tier</h2>
+      <button id="add-image-btn">Add Image</button>
+      <input type="file" id="image-input" accept="image/*" style="display:none;">
+    </div>
+    <ul id="tier-list"></ul>
+    <script>
+      const tierSelect = document.getElementById('tier-select');
+      const currentTier = document.getElementById('current-tier');
+      const tierList = document.getElementById('tier-list');
+      const addImageBtn = document.getElementById('add-image-btn');
+      const imageInput = document.getElementById('image-input');
+      let draggingItem = null;
+      
+      // Add event listener to tier select
+      tierSelect.addEventListener('click', event => {
+        if (event.target.matches('.tier')) {
+          // Update current tier heading
+          currentTier.textContent = event.target.textContent;
+        }
+      });
+      
+      // Add event listener to image input
+      addImageBtn.addEventListener('click', () => {
+        imageInput.click();
+      });
+      
+      imageInput.addEventListener('change', () => {
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+        
+        reader.addEventListener('load', () => {
+          const item = document.createElement('li');
+          item.classList.add('item');
+          
+          const image = document.createElement('img');
+          image.src = reader.result;
+          item.appendChild(image);
+          
+          item.draggable = true;
+          item.addEventListener('dragstart', () => {
+            draggingItem = item;
+            item.classList.add('dragging');
+          });
+          item.addEventListener('dragend', () => {
+            draggingItem.classList.remove('dragging');
+            draggingItem = null;
+          });
+          
+          tierList.appendChild(item);
+        });
+        
+        reader.readAsDataURL(file);
+      });
+      
+      // Add event listeners to tier list items
+      tierList.addEventListener('dragover', event => {
+        event.preventDefault();
+        const target = event.target;
+        if (target.matches('.item')) {
+          target.classList.add('dragover');
+        }
+      });
+      
+      tierList.addEventListener('dragleave', event => {
+        const target = event.target;
+        if (target.matches('.item')) {
+          target.classList.remove('dragover');
+        }
+      });
+      
+      tierList.addEventListener('drop', event => {
+        event.preventDefault();
+       

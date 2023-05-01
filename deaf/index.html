@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Tone Generator</title>
+    <link rel="icon" type="image/png" href="https://searx.be/image_proxy?url=https%3A%2F%2Fem-content.zobj.net%2Fsource%2Fskype%2F289%2Fclown-face_1f921.png&h=77e1942cd0341a221c4f0868b65bb4bf504cdcaacea9c7307358e8e306a1c7d5">
+
+<script>
+
+var context = null;
+var usingWebAudio = true;
+if (typeof AudioContext !== 'undefined') {
+  context = new AudioContext();
+} else if (typeof webkitAudioContext !== 'undefined') {
+  context = new webkitAudioContext();
+} else {
+  usingWebAudio = false;
+}
+
+var playing = false;
+var osc = null;
+var freq = 440;
+var STEP_CONSTANT = Math.pow(2.0, 1.0/12.0);
+
+function toggle() {
+  var button = document.getElementById("toggle");
+  if (playing && osc) {
+    playing = false;
+    osc.stop(0);
+    button.value = "Play";
+  } else {
+    playing = true;
+    osc = context.createOscillator();
+    osc.connect(context.destination);
+    osc.frequency.value = freq;
+    osc.start(0);
+    button.value = "Stop";
+  }
+}
+
+function updateFreq(newFreq) {
+  freq = newFreq;
+  if (osc) {
+    osc.frequency.value = freq;
+  }
+  var text = document.getElementById("freqText").value = freq;
+  var range = document.getElementById("freqRange").value = freq;
+}
+
+window.onload = function() {
+  if (!usingWebAudio) {
+    document.getElementById("audioControls").innerHTML = "<p>Web audio required.</p>"
+  }
+}
+
+</script>
+</head>
+
+<body>
+  <b><a href="/" style="color: darkslategray;font-size: 16px;border-color: white;border-radius: 15px;padding: 1px 1px 1px 1px;border-top: 3px solid #ff2200;border-right: 3px solid #ff2200;border-bottom: 3px solid #ff2200;border-left: 3px solid #ff2200;color: darkslategray;background-color: ghostwhite;transition: all 0.3s linear;width: 200px;-webkit-animation: glow 1s ease-in-out infinite alternate;-moz-animation: glow 1s ease-in-out infinite alternate;animation: glow 1s ease-in-out infinite alternate;font-family: Arial, sans-serif;">←Back</a></b>
+  <center>
+  <div id="audioControls">
+    <input id="freqText" type="text" value="440" onchange="updateFreq(this.value)"/>
+    <input type="button" value="-1 octave" onclick="updateFreq(freq / 2)"/>
+    <input type="button" value="-1 half-step" onclick="updateFreq(freq / STEP_CONSTANT)"/>
+    <input type="button" value="+1 half-step" onclick="updateFreq(freq * STEP_CONSTANT)"/>
+    <input type="button" value="+1 octave" onclick="updateFreq(freq * 2)"/>
+    <br>
+
+    <input id="freqRange" type="range" min="0" max="1760" value="440" oninput="updateFreq(this.value)"/>
+    <br>
+
+    <input id="toggle" type="button" value="Play" onclick="toggle()"/>
+  </div>
+  </center>
+</body>
+</html>
