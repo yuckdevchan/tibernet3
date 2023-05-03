@@ -64,7 +64,7 @@ table, th, td {
 }
 
 .splash {
-  font-size: 69px;
+  font-size: 65px;
   border-color: white;
   border-radius: 25px;
   padding: 2px 2px 2px 2px;
@@ -75,7 +75,7 @@ table, th, td {
   color: darkslategray;
   background-color: ghostwhite;
   transition: all 0.3s linear;
-  width: 755px;
+  width: 750px;
   
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
