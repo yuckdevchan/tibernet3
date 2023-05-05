@@ -128,7 +128,7 @@ body {
      border-color: rgb(61, 61, 61);
      color: #f0f6fc;
      font-size: 20px;
-     transition: font-size 0.3s, box-shadow 0.3s, Width 0.2s, background-color 0.3s;
+     transition: font-size 0.3s, box-shadow 0.3s, Width 0.2s, background-color 0.1s;
      font-weight: bold;
      border: none;
      display: inline-block;
