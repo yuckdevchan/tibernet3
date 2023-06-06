@@ -1,7 +1,6 @@
 body {
      background-color: red;
      background-image: url('https://i.etsystatic.com/9867211/r/il/91e756/1703043540/il_570xN.1703043540_flxv.jpg');
-     background-size: 100% 100%;
      font-family: Arial, sans-serif;
 }
  .top {
@@ -145,6 +144,7 @@ body {
      cursor: pointer;
      background-color: black;
      color: white;
+     border-color: black;
 }
  a:active {
      background-color: darkred;
