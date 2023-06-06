@@ -9,4 +9,5 @@ function music() {
     playing = true;
     document.getElementById("music_button").innerHTML = "Paused";
     minecraft.pause();
+  }
 }
