@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>gay</title>
-    <style>
-        body {
-            background-image: url('https://www.globalevaluationinitiative.org/sites/default/files/2023-02/gei-wheel.png');
-            background-repeat: repeat;
-            background-size: cover;
-        }
-        .image {
-            position: absolute;o
-            animation: flying 5s infinite linear;
-        }  
-        @keyframes flying {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(100vw);
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="image">
-        <img src="https://www.eu-gei.eu/files/35/w317h256/homepageimage.png" alt="Flying Image 1" width="600" height="200">
-    </div>
+    <form action="/html/tags/html_form_tag_action.cfm" method="get">
+    First name:
+    <input type="text" name="first_name" value="" maxlength="100" />
+    <br />
+    Last name:
+    <input type="text" name="last_name" value="" maxlength="100" />
+    <input type="submit" value="Submit" />
+    </form>
 </body>
 </html>
 
