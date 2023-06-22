@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Geiness</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>The Pride of Geiness</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="banner">
+        <h2>Welcome to Geiness</h2>
+        <p>Embrace diversity, celebrate love, and ignite change!</p>
+        <a href="#" class="cta-button">Join Us</a>
+    </section>
+
+    <section id="about">
+        <h2>About Geiness</h2>
+        <p>Geiness is a platform dedicated to celebrating the LGBTQ+ community and promoting inclusivity. We believe in creating a safe and welcoming space for all individuals, regardless of their sexual orientation or gender identity.</p>
+        <a href="#" class="learn-more-button">Learn More</a>
+    </section>
+
+    <section id="stories">
+        <h2>Share Your Story</h2>
+        <p>We encourage you to share your personal experiences and journeys. Your story can inspire others and foster a greater understanding and acceptance within our community.</p>
+        <a href="#" class="share-button">Share Now</a>
+    </section>
+
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <p>Stay updated with exciting Pride parades, festivals, and community gatherings happening near you. Join us in celebrating the LGBTQ+ culture and fostering a sense of unity.</p>
+        <a href="#" class="view-events-button">View All Events</a>
+    </section>
+
+    <section id="resources">
+        <h2>Resources and Support</h2>
+        <p>Access a comprehensive collection of resources, helplines, and organizations dedicated to supporting the LGBTQ+ community. We are here to provide guidance and assistance.</p>
+        <a href="#" class="explore-resources-button">Explore Resources</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Geiness. All rights reserved.</p>
+    </footer>
+</body>
+</html>
