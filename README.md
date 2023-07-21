@@ -1,4 +1,4 @@
-# Tibernet 3.1
+# Tibernet 3
 
 ## Bypass low-level censorship and preserve your privacy and rights!
 
