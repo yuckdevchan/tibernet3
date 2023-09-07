@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Computing Teacher</title>
+</head>
+<body>
+    <h1>Days Since New Computing Teacher</h1>
+    <div id="countdown"></div>
+
+    <script>
+        // Set the target date and time
+        const targetDate = new Date('2023-09-07T10:15:00');
+
+        function updateCountdown() {
+            const currentDate = new Date();
+            const timeDifference = targetDate - currentDate;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <p>${days} days</p>
+                <p>${hours} hours</p>
+                <p>${minutes} minutes</p>
+                <p>${seconds} seconds</p>
+            `;
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Initial call to set the countdown on page load
+        updateCountdown();
+    </script>
+</body>
+</html>
