@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Thing</title>
+    <title>Days Since New Computing Teacher</title>
 </head>
+<style>
+@font-face {
+    font-family: "Raleway";
+    src: url('raleway.ttf') format('truetype');
+}
+body {
+    font-family: Raleway;
+    font-weight: 700;
+}
+</style>
 <body>
     <center>
-        <h1>Days Since New Thing</h1>
+        <br>
+        <br>
+        <h1 style="font-size: 40px;">Days Since New Computing Teacher:</h1>
     <div id="countdown"></div>
     </center>
     <script>
@@ -19,17 +31,21 @@
             const currentDate = new Date();
             const timeDifference = targetDate - currentDate;
 
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            days = days - 1;
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            days = days + 1;
+            days = days * -1;
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            hours = hours * -1;
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            minutes = minutes * -1;
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            seconds = seconds * -1;
 
             document.getElementById('countdown').innerHTML = `
-                <p>${days} days</p>
-                <p>${hours} hours</p>
-                <p>${minutes} minutes</p>
-                <p>${seconds} seconds</p>
+                <p style="font-size: 150px;">${days} day(s)</p>
+                <p style="font-size: 50px;">and ${hours} hour(s)</p>
+                <p style="font-size: 25px;">and ${minutes} minute(s)</p>
+                <p>and ${seconds} second(s).</p>
             `;
         }
 
