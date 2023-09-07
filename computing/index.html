@@ -7,12 +7,13 @@
 </head>
 <body>
     <center>
-        <h1>Days Since New Computing Teacher</h1>
+        <h1>Days Since New Computing Teacher.</h1>
     <div id="countdown"></div>
     </center>
     <script>
-        // Set the target date and time in UTC
-        const targetDate = new Date('2023-09-07T10:15:00Z');
+        // Set the target date and time in UTC+0
+        const targetDate = new Date('2023-09-07T10:15:00');
+        targetDate.setUTCHours(10, 15, 0, 0); // Ensure UTC time
 
         function updateCountdown() {
             const currentDate = new Date();
