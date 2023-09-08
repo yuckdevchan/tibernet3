@@ -27,6 +27,7 @@ body {
         const targetDate = new Date('2023-09-08T10:15:00');
         const brownDate = new Date('2023-03-16T10:15:00');
         const howleyDate = new Date('2022-09-06T10:15:00');
+        const paulDate = new Date('2023-03-03T10:15:00');
         targetDate.setUTCHours(10, 15, 0, 0); // Ensure UTC time
 
         function updateCountdown() {
@@ -34,10 +35,12 @@ body {
             const timeDifference = targetDate - currentDate;
             const brownDifference = brownDate - currentDate;
             const howleyDifference = howleyDate - currentDate;
+            const paulDifference = paulDate - currentDate;
 
             var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             var days_brown = Math.floor(brownDifference / (1000 * 60 * 60 * 24));
             var days_howley = Math.floor(howleyDifference / (1000 * 60 * 60 * 24));
+            var days_paul = Math.floor(paulDifference / (1000 * 60 * 60 * 24));
             days = days + 1;
             days_roberts = days + 1
             days_howley = days_howley * -1
@@ -59,6 +62,7 @@ body {
                   <li>AJG: ${days} days</li>
                   <li>Roberts: ${days_roberts} days</li>
                   <li>Brown: ${days_brown} days</li>
+                  <li>Paul: ${days_paul} days</li>
                   <li>Howley: ${days_howley} days</li>
                 </ul>
             `;
