@@ -25,6 +25,7 @@ body {
     <script>
         // Set the target date and time in UTC+0
         const targetDate = new Date('2023-09-08T10:15:00');
+        const brownDate = new Date('2023-03-16T10:15:00');
         targetDate.setUTCHours(10, 15, 0, 0); // Ensure UTC time
 
         function updateCountdown() {
@@ -32,6 +33,7 @@ body {
             const timeDifference = targetDate - currentDate;
 
             var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            var days_brown = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             days = days + 1;
             days_roberts = days + 1
             days = days * -1;
@@ -50,6 +52,7 @@ body {
                 <ul>
                   <li>AJG: ${days} days</li>
                   <li>Roberts: ${days_roberts} days</li>
+                  <li>Brown: ${days_brown} days</li>
                 </ul>
             `;
         }
